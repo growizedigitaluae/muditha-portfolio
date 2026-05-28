@@ -80,26 +80,26 @@ export default function Home() {
   const testimonials = [
     {
       id: 1,
-      quote: "Transformed our industrial distribution pipeline completely. The unified corporate branding strategy and high-speed Next.js web build immediately legitimized our technical authority across the GCC region, accelerating corporate leads by over 40% in just a single quarter.",
-      author: "Tareq Al-Mansoori",
-      role: "Operations Director",
-      company: "Apex Lubricants & Chemicals LLC",
+      quote: "Completely redefined our brand's global presence. From the masterfully executed modern packaging design to a comprehensive corporate profile and high-performance web architecture, the rebranding captured our legacy perfectly while instantly elevating our market authority.",
+      author: "Samantha Rathnayake",
+      role: "CEO",
+      company: "Luitage Tea",
       rating: 5
     },
     {
       id: 2,
-      quote: "An absolute powerhouse combination of raw creative design precision and real, conversion-driven digital marketing strategy. Our wholesale exports scaled beautifully because they didn't just design assets—they mapped out the entire inbound lead generation funnel.",
-      author: "Fatima Al-Suwaidi",
-      role: "Managing Director",
-      company: "Elegance Abayas Wholesale",
+      quote: "An absolute powerhouse execution for our B2B operations. They didn't just build a sleek, highly responsive web platform—they delivered a complete corporate branding ecosystem and an aggressive digital marketing funnel that scaled our wholesale client acquisition effortlessly.",
+      author: "Rameez Rasa",
+      role: "CEO & Founder",
+      company: "Sauda B2B",
       rating: 5
     },
     {
       id: 3,
-      quote: "Rarely do you find an expert executioner who can effortlessly jump from engineering complex vector assets for print and label packaging to structuring highly responsive Next.js technical code. A flawless design execution partner for modern enterprise requirements.",
-      author: "Marcus Vance",
-      role: "Chief Marketing Officer",
-      company: "Vanguard Real Estate Group",
+      quote: "Our technical authority received an immediate upgrade. The lightning-fast corporate website combined with their tactical digital marketing campaigns instantly optimized our digital footprint, driving highly qualified B2B leads straight into our distribution pipeline.",
+      author: "Tausif Zaman",
+      role: "Founder",
+      company: "TexLubricant",
       rating: 5
     }
   ];
