@@ -16,12 +16,58 @@ export default function ContactPage() {
     inquiryType: "Web Development",
     message: ""
   });
+  
+  // State to manage loading spinners or success visibility if needed
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder for form submission logic (e.g., API route, Resend, or Formspree)
-    console.log("Form submitted:", formData);
-    alert("Briefing initiated. We will be in contact shortly.");
+    setIsSubmitting(true);
+
+    // Prepare the transmission payload for Web3Forms
+    const payload = {
+      // TODO: REPLACE THIS VALUE STRING WITH YOUR ACTUAL COPIED KEY FROM WEB3FORMS
+      access_key: "e4af21cc-0956-4ef2-94f7-157cbd4cb06c", 
+      name: formData.name,
+      email: formData.email,
+      subject: `New Portfolio Lead: ${formData.inquiryType} - ${formData.company || 'No Company'}`,
+      from_name: "Portfolio Portal",
+      company: formData.company,
+      objective: formData.inquiryType,
+      message: formData.message,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Briefing initiated successfully. We will be in contact shortly.");
+        // Clear out the entry tracking inputs gracefully upon successful submission
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          inquiryType: "Web Development",
+          message: ""
+        });
+      } else {
+        alert("Transmission pipeline issue: " + result.message);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Network exception error. Please contact directly via email.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -161,10 +207,11 @@ export default function ContactPage() {
               {/* Submit Button */}
               <button 
                 type="submit"
-                className="w-full group flex justify-center items-center space-x-2 bg-[#FF5A09] hover:bg-orange-600 text-white text-xs font-bold uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-xl shadow-orange-500/10"
+                disabled={isSubmitting}
+                className="w-full group flex justify-center items-center space-x-2 bg-[#FF5A09] hover:bg-orange-600 disabled:bg-orange-800 text-white text-xs font-bold uppercase tracking-widest px-6 py-4 rounded-xl transition-all duration-300 shadow-xl shadow-orange-500/10 disabled:cursor-not-allowed"
               >
-                <span>Submit Your Project</span>
-                <Send size={14} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <span>{isSubmitting ? "Transmitting..." : "Submit Your Project"}</span>
+                {!isSubmitting && <Send size={14} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />}
               </button>
             </form>
           </div>
