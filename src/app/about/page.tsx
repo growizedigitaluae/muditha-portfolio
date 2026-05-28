@@ -52,7 +52,7 @@ export default function AboutPage() {
                 Data-Driven Growth.
               </h1>
               <p className="text-base sm:text-lg text-slate-400 font-normal max-w-xl leading-relaxed">
-                Fusing sophisticated visual identity systems with performance web structures and aggressive multi-channel digital marketing matrices to dominate the UAE corporate landscape [cite: Muditha Sri is a Senior Graphic Designer and Digital Marketing Executive., The user has over 15 years of professional experience in branding, advertising, web development, and digital campaigns., The user prioritizes high-performance, minimalist web development using Next.js, Astro, Tailwind CSS, and Framer Motion to ensure speed and SEO optimization.].
+                Fusing sophisticated visual identity systems with performance web structures and aggressive multi-channel digital marketing matrices to dominate the UAE corporate landscape Muditha Sri is a Senior Graphic Designer and Digital Marketing Executive., The user has over 15 years of professional experience in branding, advertising, web development, and digital campaigns., The user prioritizes high-performance, minimalist web development using Next.js, Astro, Tailwind CSS, and Framer Motion to ensure speed and SEO optimization.
               </p>
             </motion.div>
             
